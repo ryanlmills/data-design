@@ -15,17 +15,19 @@ CREATE TABLE profile (
 CREATE TABLE film (
     filmId BINARY(16) NOT NULL,
     filmName VARCHAR(256) NOT NULL,
-    filmCover VARBINARY(1024),
+    filmCover VARCHAR(255),
     PRIMARY KEY (filmId)
 );
 
 CREATE TABLE review (
-    reviewId BINARY(16) NOT NULL,
-    reviewValueId BINARY(16) NOT NULL,
+    reviewFilmId BINARY(16) NOT NULL,
+    reviewProfileId BINARY(16) NOT NULL,
     reviewDate DATETIME(6) NOT NULL,
     reviewText VARCHAR(1024) NOT NULL,
     reviewRatingValue DECIMAL(2,1) NOT NULL,
-    index(reviewRatingValue),
-    FOREIGN KEY (reviewValueId) REFERENCES profile(profileId),
-    PRIMARY KEY (reviewId)
+    index(reviewProfileId),
+    index(reviewFilmId),
+    FOREIGN KEY (reviewProfileId) REFERENCES profile(profileId),
+    FOREIGN KEY (reviewFilmId) REFERENCES film(filmId),
+    PRIMARY KEY (reviewFilmId, reviewProfileId)
 );
