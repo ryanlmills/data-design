@@ -4,11 +4,11 @@ DROP TABLE IF EXISTS profile;
 
 CREATE TABLE profile (
     profileId BINARY(16) NOT NULL,
-    profileActivationToken CHAR(32) NOT NULL,
+    profileActivationToken CHAR(32)
     profileEmail VARCHAR(128) NOT NULL,
     profileHandle VARCHAR(32) NOT NULL
-    UNIQUE KEY unique_profileHandle (profileHandle),
-    UNIQUE KEY unique_email (profileEmail),
+    UNIQUE(profileHandle),
+    UNIQUE(profileEmail),
     PRIMARY KEY (profileId)
 );
 
