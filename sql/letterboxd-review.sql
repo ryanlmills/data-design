@@ -23,7 +23,7 @@ CREATE TABLE review (
     reviewId BINARY(16) NOT NULL,
     reviewValueId BINARY(16) NOT NULL,
     reviewDate DATETIME(6) NOT NULL,
-    reviewText VARCHAR(MAX) NOT NULL,
+    reviewText VARCHAR(1024) NOT NULL,
     reviewRatingValue DECIMAL(2,1) NOT NULL,
     index(reviewRatingValue),
     FOREIGN KEY (reviewValueId) REFERENCES profile(profileId),
