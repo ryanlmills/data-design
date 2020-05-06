@@ -15,7 +15,7 @@ CREATE TABLE profile (
 CREATE TABLE film (
     filmId BINARY(16) NOT NULL,
     filmName VARCHAR(256) NOT NULL,
-    filmCover VARBINARY(MAX),
+    filmCover VARBINARY(1024),
     PRIMARY KEY (filmId)
 );
 
