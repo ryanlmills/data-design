@@ -7,7 +7,8 @@ CREATE TABLE profile (
     profileActivationToken CHAR(32) NOT NULL,
     profileEmail VARCHAR(128) NOT NULL,
     profileHandle VARCHAR(32) NOT NULL
-    UNIQUE(profileHandle),
+    UNIQUE KEY unique_profileHandle (profileHandle),
+    UNIQUE KEY unique_email (profileEmail),
     PRIMARY KEY (profileId)
 );
 
