@@ -24,6 +24,7 @@ CREATE TABLE review (
     reviewDate DATETIME(6) NOT NULL,
     reviewText VARCHAR(MAX) NOT NULL,
     reviewRatingValue DECIMAL(2,1) NOT NULL,
+    index(reviewRatingValue),
     FOREIGN KEY (reviewValueId) REFERENCES profile(profileId),
     PRIMARY KEY (reviewId)
 );
